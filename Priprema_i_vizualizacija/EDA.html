@@ -7475,7 +7475,18 @@ a.anchor-link {
 </style>
 <!-- End of mermaid configuration --></head>
 <body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
-<main><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=87b2305e-4d42-4ea7-9023-723f1b8de43d">
+<main>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9e867cee-db71-458d-a68e-a4c35c69e1d9">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h1 id="EDA-of-the-Wisconsin-Breast-Cancer-Dataset">EDA of the Wisconsin Breast Cancer Dataset<a class="anchor-link" href="#EDA-of-the-Wisconsin-Breast-Cancer-Dataset">¶</a></h1>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=2267ab51-cbd4-4abc-aeed-1e5d28d86dbc">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7483,7 +7494,20 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">'Hello'</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">ucimlrepo</span> <span class="kn">import</span> <span class="n">fetch_ucirepo</span> 
+  
+<span class="c1"># fetch dataset </span>
+<span class="n">breast_cancer_wisconsin_diagnostic</span> <span class="o">=</span> <span class="n">fetch_ucirepo</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="mi">17</span><span class="p">)</span> 
+  
+<span class="c1"># data (as pandas dataframes) </span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">breast_cancer_wisconsin_diagnostic</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">features</span> 
+<span class="n">y</span> <span class="o">=</span> <span class="n">breast_cancer_wisconsin_diagnostic</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">targets</span> 
+  
+<span class="c1"># metadata </span>
+<span class="nb">print</span><span class="p">(</span><span class="n">breast_cancer_wisconsin_diagnostic</span><span class="o">.</span><span class="n">metadata</span><span class="p">)</span> 
+  
+<span class="c1"># variable information </span>
+<span class="nb">print</span><span class="p">(</span><span class="n">breast_cancer_wisconsin_diagnostic</span><span class="o">.</span><span class="n">variables</span><span class="p">)</span> 
 </pre></div>
 </div>
 </div>
@@ -7496,13 +7520,80 @@ a.anchor-link {
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Hello
+<pre>{'uci_id': 17, 'name': 'Breast Cancer Wisconsin (Diagnostic)', 'repository_url': 'https://archive.ics.uci.edu/dataset/17/breast+cancer+wisconsin+diagnostic', 'data_url': 'https://archive.ics.uci.edu/static/public/17/data.csv', 'abstract': 'Diagnostic Wisconsin Breast Cancer Database.', 'area': 'Life Science', 'tasks': ['Classification'], 'characteristics': ['Multivariate'], 'num_instances': 569, 'num_features': 30, 'feature_types': ['Real'], 'demographics': [], 'target_col': ['Diagnosis'], 'index_col': ['ID'], 'has_missing_values': 'no', 'missing_values_symbol': None, 'year_of_dataset_creation': 1993, 'last_updated': 'Mon Jul 17 2023', 'dataset_doi': '10.24432/C5DW2B', 'creators': ['William Wolberg', 'Olvi Mangasarian', 'Nick Street', 'W. Street'], 'intro_paper': {'title': 'Nuclear feature extraction for breast tumor diagnosis', 'authors': 'W. Street, W. Wolberg, O. Mangasarian', 'published_in': 'Electronic imaging', 'year': 1993, 'url': 'https://www.semanticscholar.org/paper/53f0fbb425bc14468eb3bf96b2e1d41ba8087f36', 'doi': '10.1117/12.148698'}, 'additional_info': {'summary': 'Features are computed from a digitized image of a fine needle aspirate (FNA) of a breast mass.  They describe characteristics of the cell nuclei present in the image. A few of the images can be found at http://www.cs.wisc.edu/~street/images/\r\n\r\nSeparating plane described above was obtained using Multisurface Method-Tree (MSM-T) [K. P. Bennett, "Decision Tree Construction Via Linear Programming." Proceedings of the 4th Midwest Artificial Intelligence and Cognitive Science Society, pp. 97-101, 1992], a classification method which uses linear programming to construct a decision tree.  Relevant features were selected using an exhaustive search in the space of 1-4 features and 1-3 separating planes.\r\n\r\nThe actual linear program used to obtain the separating plane in the 3-dimensional space is that described in: [K. P. Bennett and O. L. Mangasarian: "Robust Linear Programming Discrimination of Two Linearly Inseparable Sets", Optimization Methods and Software 1, 1992, 23-34].\r\n\r\nThis database is also available through the UW CS ftp server:\r\nftp ftp.cs.wisc.edu\r\ncd math-prog/cpo-dataset/machine-learn/WDBC/', 'purpose': None, 'funded_by': None, 'instances_represent': None, 'recommended_data_splits': None, 'sensitive_data': None, 'preprocessing_description': None, 'variable_info': '1) ID number\r\n2) Diagnosis (M = malignant, B = benign)\r\n3-32)\r\n\r\nTen real-valued features are computed for each cell nucleus:\r\n\r\n\ta) radius (mean of distances from center to points on the perimeter)\r\n\tb) texture (standard deviation of gray-scale values)\r\n\tc) perimeter\r\n\td) area\r\n\te) smoothness (local variation in radius lengths)\r\n\tf) compactness (perimeter^2 / area - 1.0)\r\n\tg) concavity (severity of concave portions of the contour)\r\n\th) concave points (number of concave portions of the contour)\r\n\ti) symmetry \r\n\tj) fractal dimension ("coastline approximation" - 1)', 'citation': None}}
+                  name     role         type demographic description units  \
+0                   ID       ID  Categorical        None        None  None   
+1            Diagnosis   Target  Categorical        None        None  None   
+2              radius1  Feature   Continuous        None        None  None   
+3             texture1  Feature   Continuous        None        None  None   
+4           perimeter1  Feature   Continuous        None        None  None   
+5                area1  Feature   Continuous        None        None  None   
+6          smoothness1  Feature   Continuous        None        None  None   
+7         compactness1  Feature   Continuous        None        None  None   
+8           concavity1  Feature   Continuous        None        None  None   
+9      concave_points1  Feature   Continuous        None        None  None   
+10           symmetry1  Feature   Continuous        None        None  None   
+11  fractal_dimension1  Feature   Continuous        None        None  None   
+12             radius2  Feature   Continuous        None        None  None   
+13            texture2  Feature   Continuous        None        None  None   
+14          perimeter2  Feature   Continuous        None        None  None   
+15               area2  Feature   Continuous        None        None  None   
+16         smoothness2  Feature   Continuous        None        None  None   
+17        compactness2  Feature   Continuous        None        None  None   
+18          concavity2  Feature   Continuous        None        None  None   
+19     concave_points2  Feature   Continuous        None        None  None   
+20           symmetry2  Feature   Continuous        None        None  None   
+21  fractal_dimension2  Feature   Continuous        None        None  None   
+22             radius3  Feature   Continuous        None        None  None   
+23            texture3  Feature   Continuous        None        None  None   
+24          perimeter3  Feature   Continuous        None        None  None   
+25               area3  Feature   Continuous        None        None  None   
+26         smoothness3  Feature   Continuous        None        None  None   
+27        compactness3  Feature   Continuous        None        None  None   
+28          concavity3  Feature   Continuous        None        None  None   
+29     concave_points3  Feature   Continuous        None        None  None   
+30           symmetry3  Feature   Continuous        None        None  None   
+31  fractal_dimension3  Feature   Continuous        None        None  None   
+
+   missing_values  
+0              no  
+1              no  
+2              no  
+3              no  
+4              no  
+5              no  
+6              no  
+7              no  
+8              no  
+9              no  
+10             no  
+11             no  
+12             no  
+13             no  
+14             no  
+15             no  
+16             no  
+17             no  
+18             no  
+19             no  
+20             no  
+21             no  
+22             no  
+23             no  
+24             no  
+25             no  
+26             no  
+27             no  
+28             no  
+29             no  
+30             no  
+31             no  
 </pre>
 </div>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=2267ab51-cbd4-4abc-aeed-1e5d28d86dbc">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=bc365f1c-29cb-4e7d-a202-8b8e6feebb9c">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>

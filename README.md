@@ -1,2 +1,2 @@
 # UZOP
-UZOP Projekt Ivana Klabucaras
+UZOP Projekt Ivana Klabucara

@@ -5,6 +5,7 @@ __pycache__/
 
 # C extensions
 *.so
+Malignant_and_Benign_Breast_Cancer_Classification_using_Machine_Learning_Algorithms.pdf
 
 # Distribution / packaging
 .Python

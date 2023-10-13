@@ -1,2 +1,2 @@
 # UZOP
-UZOP laboratorijske vjezbe
+UZOP Projekt Ivana Klabucaras
